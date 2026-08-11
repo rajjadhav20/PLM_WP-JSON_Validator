@@ -1,0 +1,284 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  background: #f4f7fb;
+  color: #172033;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.header {
+  min-height: 76px;
+  padding: 16px 6%;
+  background: #101827;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 21px;
+}
+
+.brand p {
+  margin: 3px 0 0;
+  color: #aab5c7;
+  font-size: 13px;
+}
+
+.container {
+  width: min(1180px, 92%);
+  margin: 34px auto;
+}
+
+.upload-card {
+  background: white;
+  border: 2px dashed #cbd5e1;
+  border-radius: 18px;
+  min-height: 320px;
+  padding: 50px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.upload-icon {
+  color: #2563eb;
+  margin-bottom: 12px;
+}
+
+.upload-card h2 {
+  margin: 5px 0 8px;
+}
+
+.upload-card p {
+  color: #64748b;
+  margin: 0 0 22px;
+}
+
+.upload-card small {
+  margin-top: 12px;
+  color: #94a3b8;
+}
+
+.upload-button,
+.reset-button {
+  border: 0;
+  border-radius: 9px;
+  padding: 11px 17px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.upload-button {
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+}
+
+.reset-button {
+  background: #1e293b;
+  color: white;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.summary-card {
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 3px 15px rgba(15, 23, 42, 0.06);
+}
+
+.summary-card span {
+  display: block;
+  color: #64748b;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.summary-card strong {
+  font-size: 22px;
+}
+
+.success {
+  color: #15803d;
+}
+
+.error {
+  color: #dc2626;
+}
+
+.status-banner {
+  background: white;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 18px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  box-shadow: 0 3px 15px rgba(15, 23, 42, 0.06);
+}
+
+.status-cross {
+  color: #dc2626;
+  font-weight: bold;
+}
+
+.errors-panel,
+.json-panel {
+  background: white;
+  border-radius: 14px;
+  margin-top: 18px;
+  padding: 22px;
+  box-shadow: 0 3px 15px rgba(15, 23, 42, 0.06);
+}
+
+.errors-panel h2,
+.json-panel h2 {
+  margin-top: 0;
+}
+
+.error-item {
+  border-left: 4px solid #dc2626;
+  background: #fff7f7;
+  padding: 14px 16px;
+  margin-top: 12px;
+  border-radius: 7px;
+}
+
+.error-title {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.error-title span {
+  color: #dc2626;
+}
+
+.error-item p {
+  margin: 8px 0;
+}
+
+.error-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+code {
+  background: #eef2f7;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+.no-errors {
+  background: #ecfdf5;
+  color: #166534;
+  padding: 16px;
+  border-radius: 10px;
+  margin-top: 18px;
+}
+
+.json-panel {
+  overflow: hidden;
+}
+
+.json-panel pre {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 16px 0;
+  overflow: auto;
+  border-radius: 10px;
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.json-line {
+  display: flex;
+  min-width: max-content;
+}
+
+.line-number {
+  width: 55px;
+  padding-right: 15px;
+  margin-right: 15px;
+  text-align: right;
+  color: #64748b;
+  user-select: none;
+  border-right: 1px solid #334155;
+}
+
+.parse-error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.parse-error p {
+  margin-bottom: 0;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    align-items: flex-start;
+  }
+
+  .reset-button {
+    padding: 9px;
+  }
+}
