@@ -1,33 +1,54 @@
-export default function ValidationErrors({ errors }) {
-  if (!errors?.length) {
-    return <div className="no-errors">✓ No validation errors found.</div>;
+export default function ValidationErrors({ errors = [], onErrorClick }) {
+  if (!errors.length) {
+    return <div className="no-errors">No validation errors found. ✓</div>;
   }
 
   return (
     <div className="errors-panel">
-      <h2>Validation Errors</h2>
+      <div className="panel-header">
+        <h2>Validation Errors</h2>
 
-      {errors.map((error, index) => (
-        <div className="error-item" key={`${error.instancePath}-${index}`}>
-          <div className="error-title">
-            <span>#{index + 1}</span>
-            <strong>{error.keyword}</strong>
-          </div>
+        <span>{errors.length} issue(s)</span>
+      </div>
 
-          <p>{error.message}</p>
+      {errors.map((error) => (
+        <button
+          className="validation-error-item"
+          key={error.id}
+          onClick={() => onErrorClick(error)}
+          type="button"
+        >
+          <div className="validation-error-icon">⚠️</div>
 
-          <div className="error-meta">
-            <span>
-              Path: <code>{error.instancePath || "/"}</code>
-            </span>
+          <div className="validation-error-content">
+            <div className="validation-error-title">
+              <span className="validation-error-id">#{error.id}</span>
 
-            {error.schemaPath && (
+              <strong>{error.category}</strong>
+            </div>
+
+            <p className="validation-error-message">{error.message}</p>
+
+            <div className="validation-error-meta">
               <span>
-                Schema: <code>{error.schemaPath}</code>
+                <strong>Path:</strong>
+                <code>{error.path}</code>
               </span>
-            )}
+
+              <span>
+                <strong>Line:</strong>
+                <code>{error.lineNumber ?? "N/A"}</code>
+              </span>
+
+              {error.column && (
+                <span>
+                  <strong>Column:</strong>
+                  <code>{error.column}</code>
+                </span>
+              )}
+            </div>
           </div>
-        </div>
+        </button>
       ))}
     </div>
   );
